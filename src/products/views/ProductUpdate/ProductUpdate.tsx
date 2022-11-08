@@ -216,6 +216,25 @@ export const ProductUpdate: React.FC<ProductUpdateProps> = ({ id, params }) => {
 
   const handleImageDelete = (id: string) => () =>
     deleteProductImage({ variables: { id } });
+
+  // const handleProductBgUpdate = (data: CategoryUpdate) => {
+  //   if (data.categoryUpdate.errors.length > 0) {
+  //     const backgroundImageError = data.categoryUpdate.errors.find(
+  //         error => error.field === ("backgroundImage" as keyof CategoryInput)
+  //     );
+  //     if (backgroundImageError) {
+  //       notify({
+  //         status: "error",
+  //         text: intl.formatMessage(commonMessages.somethingWentWrong)
+  //       });
+  //     }
+  //   }
+  // };
+  //
+  // const [updateCategory, updateResult] = useCategoryUpdateMutation({
+  //   onCompleted: handleProductBgUpdate
+  // });
+
   const handleImageEdit = (imageId: string) => () =>
     navigate(productImageUrl(id, imageId));
   const handleSubmit = createMetadataUpdateHandler(
@@ -314,6 +333,26 @@ export const ProductUpdate: React.FC<ProductUpdateProps> = ({ id, params }) => {
         onImageUpload={handleImageUpload}
         onImageEdit={handleImageEdit}
         onImageDelete={handleImageDelete}
+        onImageBgUpload={file =>
+            updateProduct({
+              variables: {
+                id,
+                input: {
+                  backgroundImage: file
+                }
+              }
+            })
+        }
+        onImageBgDelete={() =>
+            updateProduct({
+              variables: {
+                id,
+                input: {
+                  backgroundImage: null
+                }
+              }
+            })
+        }
         toolbar={
           <IconButton
             color="primary"

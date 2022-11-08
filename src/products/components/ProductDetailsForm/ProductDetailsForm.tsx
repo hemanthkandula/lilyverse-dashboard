@@ -22,6 +22,7 @@ interface ProductDetailsFormProps {
   // because it's autosaving on its own.
   // Ref https://github.com/mirumee/saleor/issues/4470
   initialDescription: RawDraftContentState;
+  initialStory: RawDraftContentState;
   onChange(event: any);
 }
 
@@ -30,11 +31,12 @@ export const ProductDetailsForm: React.FC<ProductDetailsFormProps> = ({
   disabled,
   errors,
   initialDescription,
+  initialStory,
   onChange
 }) => {
   const intl = useIntl();
 
-  const formErrors = getFormErrors(["name", "descriptionJson"], errors);
+  const formErrors = getFormErrors(["name", "descriptionJson", "storyJson"], errors);
 
   return (
     <Card>
@@ -63,6 +65,16 @@ export const ProductDetailsForm: React.FC<ProductDetailsFormProps> = ({
           initial={initialDescription}
           label={intl.formatMessage(commonMessages.description)}
           name="description"
+          onChange={onChange}
+        />
+        <FormSpacer />
+        <RichTextEditor
+          disabled={disabled}
+          error={!!formErrors.storyJson}
+          helperText={getProductErrorMessage(formErrors.storyJson, intl)}
+          initial={initialStory}
+          label={intl.formatMessage(commonMessages.story)}
+          name="story"
           onChange={onChange}
         />
       </CardContent>

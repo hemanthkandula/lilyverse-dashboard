@@ -3667,6 +3667,9 @@ type Product implements Node & ObjectWithMetadata {
   name: String!
   description: String!
   descriptionJson: JSONString!
+  story: String!
+  storyJson: JSONString!
+  backgroundImage(size: Int): Image
   publicationDate: Date
   productType: ProductType!
   slug: String!
@@ -3748,6 +3751,10 @@ input ProductCreateInput {
   collections: [ID]
   description: String
   descriptionJson: JSONString
+      story: String
+      storyJson: JSONString
+      backgroundImage: Upload
+      backgroundImageAlt: String
   isPublished: Boolean
   name: String
   slug: String
@@ -3885,6 +3892,10 @@ input ProductInput {
   collections: [ID]
   description: String
   descriptionJson: JSONString
+  story: String
+  storyJson: JSONString
+  backgroundImage: Upload
+  backgroundImageAlt: String
   isPublished: Boolean
   name: String
   slug: String

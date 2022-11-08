@@ -96,6 +96,7 @@ export const product: (
     }
   ],
   availableForPurchase: null,
+  backgroundImage: null,
   basePrice: {
     __typename: "Money" as "Money",
     amount: 339.39,
@@ -258,6 +259,7 @@ export const product: (
   seoTitle: "Seo title",
   sku: "59661-34207",
   slug: "Borders",
+  storyJson: null,
   taxType: {
     __typename: "TaxType",
     description: "standard",

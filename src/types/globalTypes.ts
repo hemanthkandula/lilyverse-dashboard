@@ -1357,6 +1357,10 @@ export interface ProductCreateInput {
   collections?: (string | null)[] | null;
   description?: string | null;
   descriptionJson?: any | null;
+  story?: string | null;
+  storyJson?: any | null;
+  backgroundImage?: any | null;
+  backgroundImageAlt?: string | null;
   isPublished?: boolean | null;
   name?: string | null;
   slug?: string | null;
@@ -1395,6 +1399,10 @@ export interface ProductInput {
   collections?: (string | null)[] | null;
   description?: string | null;
   descriptionJson?: any | null;
+  story?: string | null;
+  storyJson?: any | null;
+  backgroundImage?: any | null;
+  backgroundImageAlt?: string | null;
   isPublished?: boolean | null;
   name?: string | null;
   slug?: string | null;

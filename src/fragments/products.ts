@@ -115,6 +115,11 @@ export const productFragmentDetails = gql`
     name
     slug
     descriptionJson
+    storyJson
+    backgroundImage {
+      alt
+      url
+    }
     seoTitle
     seoDescription
     defaultVariant {

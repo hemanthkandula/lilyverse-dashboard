@@ -16,6 +16,7 @@ import { SubmitPromise } from "@saleor/hooks/useForm";
 import useStateFromProps from "@saleor/hooks/useStateFromProps";
 import { sectionNames } from "@saleor/intl";
 import { maybe } from "@saleor/misc";
+import ProductBackground from "@saleor/products/components/ProductBackground";
 import { SearchCategories_search_edges_node } from "@saleor/searches/types/SearchCategories";
 import { SearchCollections_search_edges_node } from "@saleor/searches/types/SearchCollections";
 import { FetchMoreProps, ListActions, ReorderAction } from "@saleor/types";
@@ -62,12 +63,14 @@ export interface ProductUpdatePageProps extends ListActions {
   onVariantShow: (id: string) => () => void;
   onVariantReorder: ReorderAction;
   onImageDelete: (id: string) => () => void;
+  onImageBgDelete: () => void;
   onSubmit: (data: ProductUpdatePageSubmitData) => SubmitPromise;
   onBack?();
   onDelete();
   onImageEdit?(id: string);
   onImageReorder?(event: { oldIndex: number; newIndex: number });
   onImageUpload(file: File);
+  onImageBgUpload(file: File);
   onSeoClick?();
   onVariantAdd?();
   onSetDefaultVariant(variant: ProductDetails_product_variants);
@@ -108,6 +111,8 @@ export const ProductUpdatePage: React.FC<ProductUpdatePageProps> = ({
   onImageUpload,
   onSeoClick,
   onSubmit,
+  onImageBgUpload,
+  onImageBgDelete,
   onVariantAdd,
   onVariantsAdd,
   onSetDefaultVariant,
@@ -137,6 +142,10 @@ export const ProductUpdatePage: React.FC<ProductUpdatePageProps> = ({
 
   const initialDescription = maybe<RawDraftContentState>(() =>
     JSON.parse(product.descriptionJson)
+  );
+
+  const initialStory = maybe<RawDraftContentState>(() =>
+    JSON.parse(product.storyJson)
   );
 
   const categories = getChoices(categoryChoiceList);
@@ -176,6 +185,7 @@ export const ProductUpdatePage: React.FC<ProductUpdatePageProps> = ({
                   disabled={disabled}
                   errors={errors}
                   initialDescription={initialDescription}
+                  initialStory={initialStory}
                   onChange={change}
                 />
                 <CardSpacer />
@@ -186,6 +196,12 @@ export const ProductUpdatePage: React.FC<ProductUpdatePageProps> = ({
                   onImageReorder={onImageReorder}
                   onImageEdit={onImageEdit}
                   onImageUpload={onImageUpload}
+                />
+
+                <ProductBackground
+                    onImageUpload={onImageBgUpload}
+                    onImageDelete={onImageBgDelete}
+                    image={maybe(() => product.backgroundImage)}
                 />
                 <CardSpacer />
                 {data.attributes.length > 0 && (

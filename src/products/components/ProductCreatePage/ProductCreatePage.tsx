@@ -92,6 +92,12 @@ export const ProductCreatePage: React.FC<ProductCreatePageProps> = ({
     convertToRaw(ContentState.createFromText(""))
   );
 
+  // Ensures that it will not change after component rerenders, because it
+  // generates different block keys and it causes editor to lose its content.
+  const initialStory = React.useRef(
+    convertToRaw(ContentState.createFromText(""))
+  );
+
   // Display values
   const [selectedCategory, setSelectedCategory] = useStateFromProps(
     initial?.category || ""
@@ -145,6 +151,7 @@ export const ProductCreatePage: React.FC<ProductCreatePageProps> = ({
                   disabled={disabled}
                   errors={errors}
                   initialDescription={initialDescription.current}
+                  initialStory={initialStory.current}
                   onChange={change}
                 />
                 <CardSpacer />

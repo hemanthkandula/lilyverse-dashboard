@@ -79,6 +79,9 @@ export const commonMessages = defineMessages({
   status: {
     defaultMessage: "Status"
   },
+  story: {
+    defaultMessage: "Story"
+  },
   summary: {
     defaultMessage: "Summary"
   },
@@ -159,6 +162,9 @@ export const buttonMessages = defineMessages({
   show: {
     defaultMessage: "Show",
     description: "button"
+  },
+  story: {
+    defaultMessage: "Story"
   },
   undo: {
     defaultMessage: "Undo",

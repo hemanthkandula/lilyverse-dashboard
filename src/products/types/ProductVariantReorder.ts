@@ -118,6 +118,12 @@ export interface ProductVariantReorder_productVariantReorder_product_privateMeta
   value: string;
 }
 
+export interface ProductVariantReorder_productVariantReorder_product_backgroundImage {
+  __typename: "Image";
+  alt: string | null;
+  url: string;
+}
+
 export interface ProductVariantReorder_productVariantReorder_product_defaultVariant {
   __typename: "ProductVariant";
   id: string;
@@ -221,6 +227,8 @@ export interface ProductVariantReorder_productVariantReorder_product {
   name: string;
   slug: string;
   descriptionJson: any;
+  storyJson: any;
+  backgroundImage: ProductVariantReorder_productVariantReorder_product_backgroundImage | null;
   seoTitle: string | null;
   seoDescription: string | null;
   defaultVariant: ProductVariantReorder_productVariantReorder_product_defaultVariant | null;

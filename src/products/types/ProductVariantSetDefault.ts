@@ -118,6 +118,12 @@ export interface ProductVariantSetDefault_productVariantSetDefault_product_priva
   value: string;
 }
 
+export interface ProductVariantSetDefault_productVariantSetDefault_product_backgroundImage {
+  __typename: "Image";
+  alt: string | null;
+  url: string;
+}
+
 export interface ProductVariantSetDefault_productVariantSetDefault_product_defaultVariant {
   __typename: "ProductVariant";
   id: string;
@@ -221,6 +227,8 @@ export interface ProductVariantSetDefault_productVariantSetDefault_product {
   name: string;
   slug: string;
   descriptionJson: any;
+  storyJson: any;
+  backgroundImage: ProductVariantSetDefault_productVariantSetDefault_product_backgroundImage | null;
   seoTitle: string | null;
   seoDescription: string | null;
   defaultVariant: ProductVariantSetDefault_productVariantSetDefault_product_defaultVariant | null;

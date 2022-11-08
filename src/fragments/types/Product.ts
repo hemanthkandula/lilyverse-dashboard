@@ -112,6 +112,12 @@ export interface Product_privateMetadata {
   value: string;
 }
 
+export interface Product_backgroundImage {
+  __typename: "Image";
+  alt: string | null;
+  url: string;
+}
+
 export interface Product_defaultVariant {
   __typename: "ProductVariant";
   id: string;
@@ -215,6 +221,8 @@ export interface Product {
   name: string;
   slug: string;
   descriptionJson: any;
+  storyJson: any;
+  backgroundImage: Product_backgroundImage | null;
   seoTitle: string | null;
   seoDescription: string | null;
   defaultVariant: Product_defaultVariant | null;

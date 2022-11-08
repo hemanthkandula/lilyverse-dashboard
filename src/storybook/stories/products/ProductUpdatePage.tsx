@@ -31,6 +31,8 @@ const props: ProductUpdatePageProps = {
   images: product.images,
   onBack: () => undefined,
   onDelete: () => undefined,
+  onImageBgDelete: () => undefined,
+  onImageBgUpload: () => undefined,
   onImageDelete: () => undefined,
   onImageUpload: () => undefined,
   onSetDefaultVariant: () => undefined,

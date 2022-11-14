@@ -1596,6 +1596,7 @@ export interface TranslationInput {
   name?: string | null;
   description?: string | null;
   descriptionJson?: any | null;
+  storyJson?: any | null;
 }
 
 export interface UserCreateInput {

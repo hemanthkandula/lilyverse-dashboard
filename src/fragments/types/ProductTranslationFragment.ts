@@ -18,6 +18,7 @@ export interface ProductTranslationFragment_translation {
   __typename: "ProductTranslation";
   id: string;
   descriptionJson: any;
+  storyJson: any;
   language: ProductTranslationFragment_translation_language;
   name: string;
   seoDescription: string | null;
@@ -29,6 +30,7 @@ export interface ProductTranslationFragment {
   id: string;
   name: string;
   descriptionJson: any;
+  storyJson: any;
   seoDescription: string | null;
   seoTitle: string | null;
   translation: ProductTranslationFragment_translation | null;

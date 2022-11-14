@@ -176,6 +176,7 @@ export interface ProductUpdatePageFormData extends MetadataFormData {
   chargeTaxes: boolean;
   collections: string[];
   description: RawDraftContentState;
+  story: RawDraftContentState;
   isAvailable: boolean;
   isAvailableForPurchase: boolean;
   isPublished: boolean;
@@ -225,6 +226,7 @@ export function getProductUpdatePageFormData(
       ""
     ),
     slug: product?.slug || "",
+    story: maybe(() => JSON.parse(product.storyJson)),
     taxCode: product?.taxType.taxCode,
     trackInventory: !!product?.variants[0]?.trackInventory,
     visibleInListings: !!product?.visibleInListings,

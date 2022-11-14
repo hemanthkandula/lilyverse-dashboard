@@ -3751,10 +3751,10 @@ input ProductCreateInput {
   collections: [ID]
   description: String
   descriptionJson: JSONString
-      story: String
-      storyJson: JSONString
-      backgroundImage: Upload
-      backgroundImageAlt: String
+  story: String
+  storyJson: JSONString
+  backgroundImage: Upload
+  backgroundImageAlt: String
   isPublished: Boolean
   name: String
   slug: String
@@ -3951,6 +3951,7 @@ type ProductTranslatableContent implements Node {
   name: String!
   description: String!
   descriptionJson: JSONString!
+  storyJson: JSONString!
   translation(languageCode: LanguageCodeEnum!): ProductTranslation
   product: Product
 }
@@ -3968,6 +3969,7 @@ type ProductTranslation implements Node {
   name: String!
   description: String!
   descriptionJson: JSONString!
+  storyJson: JSONString!
   language: LanguageDisplay!
 }
 
@@ -5168,6 +5170,7 @@ input TranslationInput {
   name: String
   description: String
   descriptionJson: JSONString
+  storyJson: JSONString
 }
 
 scalar UUID

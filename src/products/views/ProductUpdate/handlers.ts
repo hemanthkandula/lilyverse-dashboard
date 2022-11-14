@@ -61,6 +61,7 @@ export function createUpdateHandler(
           title: data.seoTitle
         },
         slug: data.slug,
+        storyJson: JSON.stringify(data.story),
         taxCode: data.changeTaxCode ? data.taxCode : null,
         visibleInListings: data.visibleInListings
       }

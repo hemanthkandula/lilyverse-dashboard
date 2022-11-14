@@ -43,11 +43,13 @@ export const productTranslationFragment = gql`
     id
     name
     descriptionJson
+    storyJson
     seoDescription
     seoTitle
     translation(languageCode: $language) {
       id
       descriptionJson
+      storyJson
       language {
         code
         language
